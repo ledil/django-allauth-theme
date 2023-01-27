@@ -22,7 +22,7 @@ build: clean
 
 publish: build
 	@echo "Publishing to $(REPOSITORY)..."
-	@$(ENV)/bin/twine upload -r $(REPOSITORY) dist/*
+	@twine upload -r $(REPOSITORY) dist/*
 
 register:
 	@echo "Registering package on $(REPOSITORY)..."
