@@ -6,6 +6,22 @@
     <title>{% block head_title %}{% endblock %}</title>
     <link href="{% static "css/tailwind.css" %}" rel="stylesheet"/>
     <link href="{% static "css/signup.css" %}" rel="stylesheet"/>
+    {% if DAT_GOOGLE_ENABLE_ONETAP_LOGIN %}
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+      window.onload = function () {
+        google.accounts.id.initialize({
+          client_id: '{{ DAT_GOOGLE_CLIENT_ID }}'
+	  {% if DAT_DEBUG %}
+          referrerPolicy: {
+  	     policy: 'strict-origin-when-cross-origin'
+	  }
+	  {% endif %}
+        });
+        google.accounts.id.prompt();
+      };
+    </script>
+    {% endif %}
     {% block extra_head %}
     {% endblock %}
 </head>

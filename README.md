@@ -35,3 +35,13 @@ TEMPLATES = [
  }
 ]
 ```
+
+Configuration for settings:
+
+```python
+DAT_WELCOME_TITLE = 'Welcome Title'  # title
+DAT_WELCOME_TITLE_MOBILE = 'Welcome mobile'  # mobile title
+DAT_WELCOME_TEXT = 'Description of your project'  # text for your project
+DAT_GOOGLE_ENABLE_ONETAP_LOGIN = True  # decide if you want to show the google one tap login
+DAT_GOOGLE_CLIENT_ID = ''  # google client id 
+```
