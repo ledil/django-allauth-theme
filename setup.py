@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
+version = __import__("allauth_theme").__version__
+
 setup(
    name='django-allauth-theme',
-   version='0.1.0',
+   version=version,
    author='Leonardo Di Lella',
    author_email='leonardo.dilella@mobileapart.com',
    packages=find_packages(),
