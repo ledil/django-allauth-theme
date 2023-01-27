@@ -1,0 +1,18 @@
+{% extends "allauth/openid/base.html" %}
+
+{% load i18n crispy_forms_tags %}
+
+{% block head_title %}OpenID Sign In{% endblock %}
+
+{% block content %}
+
+    <h2 class="title">{% trans "OpenID Sign In" %}</h2>
+
+
+    <form id="openid_login_form" class="openid_login" method="post" action="{% url 'openid_login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+    </form>
+
+{% endblock %}

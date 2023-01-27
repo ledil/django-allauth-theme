@@ -1,0 +1,44 @@
+{% extends "allauth/account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount crispy_forms_tags %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+    <div class="w-full max-w-7xl mx-auto px-4">
+        {% get_providers as socialaccount_providers %}
+        <h2 class="title">{% trans "Sign in" %}</h2>
+        {% if socialaccount_providers %}
+            <p class="mb-5">{% blocktrans with site.name as site_name %}Please sign in with one
+                of your existing third party accounts. Or, <strong><a class="link" href="{{ signup_url }}">sign up</a></strong>
+                for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+            <div class="socialaccount_ballot">
+
+                <ul class="socialaccount_providers">
+                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </ul>
+
+                <hr class="divider mb-5 mt-5"/>
+                {% include "socialaccount/snippets/login_extra.html" %}
+            </div>
+
+        {% else %}
+            <p>{% blocktrans %}If you have not created an account yet, then please
+                <strong><a class="link" href="{{ signup_url }}">sign up</a></strong> first.{% endblocktrans %}</p>
+        {% endif %}
+
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}"
+                       value="{{ redirect_field_value }}"/>
+            {% endif %}
+
+            <div class="flex items-center justify-between">
+            <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+            <a class="link forgot_password" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "allauth/socialaccount/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Login Cancelled" %}{% endblock %}
+
+{% block content %}
+<h2 class="title">{% trans "Login Cancelled" %}</h2>
+
+{% url 'account_login' as login_url %}
+
+<p>{% blocktrans %}You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to <strong><a class="link" href="{{login_url}}">sign in</a></strong>.{% endblocktrans %}</p>
+
+{% endblock %}

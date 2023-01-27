@@ -1,0 +1,60 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block head_title %}{% endblock %}</title>
+    <link href="{% static "css/tailwind.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/signup.css" %}" rel="stylesheet"/>
+    {% block extra_head %}
+    {% endblock %}
+</head>
+<body class="sign_in_up_modal">
+{% block body %}
+    <div class="flex lg:flex-row h-screen flex-col">
+        <div class="lg:basis-1/2 basis-1 bg_svg lg:pt-0 pt-20">
+            <div class="sign_up_welcome_box lg:ml-20p lg:mr-100 lg:justify-end justify-center">
+                <div>
+                    <h2 class="lg:block hidden title">Welcome to notygon and to our community</h2>
+                    <h3 class="lg:hidden title">Welcome to notygon</h3>
+                    <p class="lg:block hidden">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores
+                        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                        amet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="basis-1/2 lg:mt-0 mt-12 lg:mb-0 mb-12">
+        {% if not request.user.is_authenticated %}
+            <ul class="sign_up_menu">
+                <li><a class="link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
+                <li><a class="primaryAction" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+            </ul>
+        {% endif %}
+            <div class="sign_up_form lg:justify-start justify-center lg:ml-100 ml-0">
+                <div>
+                    {% if messages %}
+                        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-4" role="alert">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extra_body %}
+{% endblock %}
+</body>
+</html>
