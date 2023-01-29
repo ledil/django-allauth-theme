@@ -43,5 +43,17 @@ DAT_WELCOME_TITLE = 'Welcome Title'  # title
 DAT_WELCOME_TITLE_MOBILE = 'Welcome mobile'  # mobile title
 DAT_WELCOME_TEXT = 'Description of your project'  # text for your project
 DAT_GOOGLE_ENABLE_ONETAP_LOGIN = True  # decide if you want to show the google one tap login
-DAT_GOOGLE_CLIENT_ID = ''  # google client id 
+DAT_GOOGLE_CLIENT_ID = ''  # google client id , e.g. XXXXXXXXXX39-62ckbbeXXXXXXXXXXXXXXXXXXXXXm1.apps.googleusercontent.com
+DAT_BASE_URL = ''  # e.g. http://localhost:8000
 ```
+
+### Google One Tap Login
+
+If you want to use the google one tap you must you must include following changes to your settings for developement environment:
+
+
+```python
+SECURE_REFERRER_POLICY = 'no-referrer-when-downgrade'
+```
+
+Add http://localhost, http://localhost:8000, http://127.0.0.1 and http://127.0.0.1:8000 to your "Allowed Javascript Origin" in your google developer console. While you are working in the development environment you must use "localhost" instead of "127.0.0.1".

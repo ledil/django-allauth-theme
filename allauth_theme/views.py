@@ -5,6 +5,7 @@ from allauth.decorators import rate_limit
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
+from django.views.generic import RedirectView
 
 from .forms import CustomSignupForm
 
@@ -22,6 +23,10 @@ class CustomLoginView(LoginView):
 class CustomLogoutView(LogoutView):
     template_name = 'allauth/account/logout.html'
 
+
+class CustomGoogleOneTapView(RedirectView):
+    def get_redirect_url(self, **kwargs):
+        return '/accounts/google/login/'
 
 @method_decorator(
     # NOTE: 'change_password' (iso 'set_') is intentional, there is no need to

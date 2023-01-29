@@ -6,26 +6,18 @@
     <title>{% block head_title %}{% endblock %}</title>
     <link href="{% static "css/tailwind.css" %}" rel="stylesheet"/>
     <link href="{% static "css/signup.css" %}" rel="stylesheet"/>
-    {% if DAT_GOOGLE_ENABLE_ONETAP_LOGIN %}
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script>
-      window.onload = function () {
-        google.accounts.id.initialize({
-          client_id: '{{ DAT_GOOGLE_CLIENT_ID }}'
-	  {% if DAT_DEBUG %}
-          referrerPolicy: {
-  	     policy: 'strict-origin-when-cross-origin'
-	  }
-	  {% endif %}
-        });
-        google.accounts.id.prompt();
-      };
-    </script>
-    {% endif %}
     {% block extra_head %}
     {% endblock %}
 </head>
 <body class="sign_in_up_modal">
+{% if DAT_GOOGLE_ENABLE_ONETAP_LOGIN %}
+<div id="g_id_onload"
+     data-client_id="{{DAT_GOOGLE_CLIENT_ID}}"
+     data-login_uri="{{DAT_BASE_URL}}{% url 'account_google_onetap_login' %}"
+     data-auto_prompt="true">
+</div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+{% endif %}
 {% block body %}
     <div class="flex lg:flex-row h-screen flex-col">
         <div class="lg:basis-1/2 basis-1 bg_svg lg:pt-0 pt-20">

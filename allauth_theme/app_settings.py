@@ -20,6 +20,10 @@ class AppSettings(object):
         return getattr(settings, "DAT_GOOGLE_CLIENT_ID", "google_client_id")
 
     @property
+    def DAT_BASE_URL(self):
+        return getattr(settings, "DAT_BASE_URL", "http://localhost:8000")
+
+    @property
     def DAT_WELCOME_TEXT(self):
         return getattr(settings, "DAT_WELCOME_TEXT",
                        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor"

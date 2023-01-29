@@ -10,4 +10,5 @@ def welcome_text(request):
         'DAT_WELCOME_TEXT': conf.DAT_WELCOME_TEXT,
         'DAT_GOOGLE_ENABLE_ONETAP_LOGIN': conf.DAT_GOOGLE_ENABLE_ONETAP_LOGIN,
         'DAT_GOOGLE_CLIENT_ID': conf.DAT_GOOGLE_CLIENT_ID,
+        'DAT_BASE_URL': conf.DAT_BASE_URL
     }

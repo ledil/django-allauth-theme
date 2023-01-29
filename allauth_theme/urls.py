@@ -1,12 +1,14 @@
 from django.urls import path, include, re_path
 from django.views.defaults import page_not_found
+from django.views.decorators.csrf import csrf_exempt
 
 from .views import CustomSignupView, CustomLoginView, CustomLogoutView, CustomPasswordSetView, \
     CustomPasswordChangeView, CustomEmailVerificationSentView, CustomConfirmEmailView, CustomAccountInactiveView, \
     CustomPasswordResetView, CustomPasswordResetDoneView, CustomPasswordResetFromKeyView, \
-    CustomPasswordResetFromKeyDoneView
+    CustomPasswordResetFromKeyDoneView, CustomGoogleOneTapView
 
 urlpatterns = [
+    path("accounts/google_onetap_login/", csrf_exempt(CustomGoogleOneTapView.as_view()), name="account_google_onetap_login"),
     path("accounts/signup/", CustomSignupView.as_view(), name="account_signup"),
     path("accounts/email/", page_not_found, kwargs={"exception": Exception("Page not Found")}),
     path("accounts/login/", CustomLoginView.as_view(), name="account_login"),
