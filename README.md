@@ -1,6 +1,6 @@
 # django-allauth-theme
 
-An awesome django-allauth theme based on tailwind.
+An awesome and responsive django-allauth theme based on tailwind.
 
 ## Install
 
