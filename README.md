@@ -36,6 +36,16 @@ TEMPLATES = [
 ]
 ```
 
+Now include the urls in your urls.py
+
+```python
+urlpatterns = [
+    ...
+    path('', include('allauth_theme.urls')),
+    ...
+]
+```
+
 Configuration for settings:
 
 ```python
