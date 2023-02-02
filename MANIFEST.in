@@ -2,5 +2,5 @@ include AUTHORS
 include LICENSE
 include README.rst
 include ChangeLog.rst
-recursive-include allauth_theme *.html *.txt *.xml *.po *.mo *.js *.css
+recursive-include allauth_theme *.html *.txt *.xml *.po *.mo *.js *.css *.png
 recursive-include docs Makefile conf.py *.rst
