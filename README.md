@@ -10,11 +10,12 @@ pip install django-allauth-theme
 
 ### Configuring the settings file
 
-First of all, add `allauth_theme` to `INSTALLED_APPS`.
+First of all, add `allauth_theme` and `crispy_forms` to `INSTALLED_APPS`.
 
 ```python
 INSTALLED_APPS = (
   ...
+  'crispy_forms',
   'allauth_theme',
   ...
 )
