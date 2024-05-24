@@ -56,6 +56,7 @@ DAT_WELCOME_TEXT = 'Description of your project'  # text for your project
 DAT_GOOGLE_ENABLE_ONETAP_LOGIN = True  # decide if you want to show the google one tap login
 DAT_GOOGLE_CLIENT_ID = ''  # google client id , e.g. XXXXXXXXXX39-62ckbbeXXXXXXXXXXXXXXXXXXXXXm1.apps.googleusercontent.com
 DAT_BASE_URL = ''  # e.g. http://localhost:8000
+DAT_TOS_MESSAGE = 'By registering, you agree to our <a href="">Terms of Service</a> and <a href="">Privacy Policy.</a>'  # optional
 ```
 
 ### Google One Tap Login
