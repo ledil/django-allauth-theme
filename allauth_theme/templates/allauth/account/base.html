@@ -22,7 +22,7 @@
 {% block body %}
     <div class="flex lg:flex-row h-screen flex-col">
         <div class="lg:basis-1/2 basis-1 bg_svg lg:pt-0 pt-20">
-            <div class="sign_up_welcome_box lg:ml-20p lg:mr-100 lg:justify-end justify-center">
+            <div class="sign_up_welcome_box flex items-center h-full lg:ml-20p lg:mr-100 lg:justify-end justify-center">
                 <div class="px-10">
                     <h4 class="lg:block hidden text-2xl font-bold dark:text-white pb-2">{{ DAT_WELCOME_TITLE }}</h4>
                     <h3 class="lg:hidden text-2xl font-bold dark:text-white pb-2">{{ DAT_WELCOME_TITLE_MOBILE }}</h3>
@@ -32,12 +32,12 @@
         </div>
         <div class="basis-1/2 lg:mt-0 mt-12 lg:mb-0 mb-12 pl-10">
         {% if not request.user.is_authenticated %}
-            <ul class="sign_up_menu">
-                <li><a class="link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
-                <li><a class="primaryAction" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+            <ul class="sign_up_menu absolute top-[25px] right-[25px]">
+                <li class="float-left mr-5"><a class="link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
+                <li class="float-left"><a class="primaryAction" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
             </ul>
         {% endif %}
-            <div class="sign_up_form lg:justify-start justify-center lg:ml-100 ml-0">
+            <div class="sign_up_form flex h-full items-center lg:justify-start justify-center lg:ml-100 ml-0">
                 <div>
                     {% if messages %}
                         <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-4" role="alert">
