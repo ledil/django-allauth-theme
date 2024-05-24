@@ -71,12 +71,6 @@
     margin-right: 25px;
 }
 
-.sign_in_up_modal .checkboxinput {
-    position: absolute;
-    left: 0;
-    top: 2px;
-}
-
 .h-screen {
     height: 100vh;
 }
@@ -96,14 +90,6 @@
     font-size: .875rem;
     line-height: 1.25rem;
     color: rgb(17 24 39);
-}
-
-.sign_up_form label {
-    font-size: .875rem;
-    line-height: 1.25rem;
-    margin-bottom: 0.5rem;
-    display: block;
-    font-weight: 500;
 }
 
 .sign_up_form div.control-group {
