@@ -1,6 +1,6 @@
 # django-allauth-theme
 
-An awesome django-allauth theme based on tailwind.
+An awesome and responsive django-allauth theme based on tailwind.
 
 ## Install
 
@@ -10,11 +10,12 @@ pip install django-allauth-theme
 
 ### Configuring the settings file
 
-First of all, add `allauth_theme` to `INSTALLED_APPS`.
+First of all, add `allauth_theme` and `crispy_forms` to `INSTALLED_APPS`.
 
 ```python
 INSTALLED_APPS = (
   ...
+  'crispy_forms',
   'allauth_theme',
   ...
 )
@@ -36,6 +37,16 @@ TEMPLATES = [
 ]
 ```
 
+Now include the urls in your urls.py
+
+```python
+urlpatterns = [
+    ...
+    path('', include('allauth_theme.urls')),
+    ...
+]
+```
+
 Configuration for settings:
 
 ```python
@@ -51,9 +62,14 @@ DAT_BASE_URL = ''  # e.g. http://localhost:8000
 
 If you want to use the google one tap you must you must include following changes to your settings for developement environment:
 
+#### Some notices for the developing environment
 
 ```python
 SECURE_REFERRER_POLICY = 'no-referrer-when-downgrade'
 ```
 
-Add http://localhost, http://localhost:8000, http://127.0.0.1 and http://127.0.0.1:8000 to your "Allowed Javascript Origin" in your google developer console. While you are working in the development environment you must use "localhost" instead of "127.0.0.1".
+Add http://localhost, http://localhost:8000, http://127.0.0.1 and http://127.0.0.1:8000 to your "Authorized JavaScript origins" in your google developer console. While you are working in the development environment you must use "localhost" instead of "127.0.0.1". As "Authorized redirect URIs" just use following URIs if you are working in the development environment:
+
+```http://localhost:8000/accounts/google/login/callback/```
+
+You can add also use 127.0.0.1 as URI if you don't want to use Google One Tap functionally while developing.

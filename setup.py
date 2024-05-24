@@ -11,12 +11,13 @@ setup(
    keywords="django auth account social openid twitter facebook oauth registration theme tailwindcss",
    url='http://pypi.python.org/pypi/django-allauth-theme/',
    license='LICENSE',
-   description='An Awesome django-allauth theme based on tailwind',
+   description='An awesome and responsive django-allauth theme based on tailwind',
    long_description_content_type="text/markdown",
    long_description=open('README.md').read(),
    install_requires=[
         "Django >= 2.0",
-        "django-allauth >= 0.51.0"
+        "django-allauth >= 0.51.0",
+        "django-crispy-forms >= 1.14.0"
     ],
     python_requires=">=3.5",
     include_package_data=True,
