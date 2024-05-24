@@ -4,8 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block head_title %}{% endblock %}</title>
-    <link href="{% static "css/tailwind.css" %}" rel="stylesheet"/>
-    <link href="{% static "css/signup.css" %}" rel="stylesheet"/>
+    <link href="{{ DAT_TAILWIND_CSS }}" rel="stylesheet"/>
+    <link href="{{ DAT_SIGNUP_CSS }}" rel="stylesheet"/>
     {% block extra_head %}
     {% endblock %}
 </head>
@@ -23,14 +23,14 @@
     <div class="flex lg:flex-row h-screen flex-col">
         <div class="lg:basis-1/2 basis-1 bg_svg lg:pt-0 pt-20">
             <div class="sign_up_welcome_box lg:ml-20p lg:mr-100 lg:justify-end justify-center">
-                <div>
-                    <h2 class="lg:block hidden title">{{ DAT_WELCOME_TITLE }}</h2>
-                    <h3 class="lg:hidden title">{{ DAT_WELCOME_TITLE_MOBILE }}</h3>
+                <div class="px-10">
+                    <h4 class="lg:block hidden text-2xl font-bold dark:text-white pb-2">{{ DAT_WELCOME_TITLE }}</h4>
+                    <h3 class="lg:hidden text-2xl font-bold dark:text-white pb-2">{{ DAT_WELCOME_TITLE_MOBILE }}</h3>
                     <p class="lg:block hidden">{{ DAT_WELCOME_TEXT }}</p>
                 </div>
             </div>
         </div>
-        <div class="basis-1/2 lg:mt-0 mt-12 lg:mb-0 mb-12">
+        <div class="basis-1/2 lg:mt-0 mt-12 lg:mb-0 mb-12 pl-10">
         {% if not request.user.is_authenticated %}
             <ul class="sign_up_menu">
                 <li><a class="link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
