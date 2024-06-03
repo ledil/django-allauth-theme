@@ -2,6 +2,9 @@
 
 An awesome and responsive django-allauth theme based on tailwind.
 
+<img width="700" alt="screenshot_login" src="https://github.com/ledil/django-allauth-theme/assets/64521/9b9ff7e4-514c-4484-b2c3-d4a611e95503">
+
+
 ## Install
 
 ```bash
@@ -72,5 +75,6 @@ SECURE_REFERRER_POLICY = 'no-referrer-when-downgrade'
 Add http://localhost, http://localhost:8000, http://127.0.0.1 and http://127.0.0.1:8000 to your "Authorized JavaScript origins" in your google developer console. While you are working in the development environment you must use "localhost" instead of "127.0.0.1". As "Authorized redirect URIs" just use following URIs if you are working in the development environment:
 
 ```http://localhost:8000/accounts/google/login/callback/```
+
 
 You can add also use 127.0.0.1 as URI if you don't want to use Google One Tap functionally while developing.
